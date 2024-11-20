@@ -57,5 +57,5 @@ jobs:
  push: true
  tags: hiklk/CICD_Pipleline:v1
 
- #- name: Image digest
- #run: echo ${{ steps.push.outputs.digest }}
+ - name: Image digest
+ run: echo ${{ steps.push.outputs.digest }}
