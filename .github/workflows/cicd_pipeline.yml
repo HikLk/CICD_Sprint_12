@@ -2,11 +2,8 @@ name: CI/CD Pipeline
 
 on:
   push:
-    branches: [workBranch]
     tags:
-      - '*'
-  pull_request:
-    branches: [workBranch]
+      - 'v*.*.*'
   workflow_dispatch:
 
 jobs:
@@ -49,7 +46,7 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build and push
+      - name: Build and push Docker image
         uses: docker/build-push-action@v3
         with:
           context: .
